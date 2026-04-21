@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AWS AgentCore — Complete Learning Guide 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root,[data-theme="dark"]{
+--bg:#0d0f14;--sf:#13161e;--s2:#181c26;--so:#1e2330;--so2:#252b3a;--sd:#2d3448;--dv:#2a3040;--bd:#333b50;
+--tx:#e8eaf0;--tm:#8892a4;--tf:#4a5568;--ti:#0d0f14;
+--pr:#ff9900;--ph:#ffac2e;--hl:#2a2010;
+--bl:#4a9eff;--bd2:#1d3a5f;--gn:#4ade80;--gd:#0f2a1a;--pp:#a78bfa;--pd2:#1e1540;
+--tl:#2dd4bf;--td:#0d2a26;--pk:#f472b6;--pkd:#2a1020;--yw:#fbbf24;--yd:#2a1d00;--rd:#f87171;--rdd:#2a1010;
+--r1:.375rem;--r2:.5rem;--r3:.75rem;--r4:1rem;--r5:1.5rem;--rf:9999px;
+--sh1:0 1px 3px rgba(0,0,0,.4);--sh2:0 4px 16px rgba(0,0,0,.5);--sh3:0 12px 40px rgba(0,0,0,.6);
+--gl:0 0 30px rgba(255,153,0,.15);
+--xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);
+--bs:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+--xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--xl2:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+--sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;--sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;--sp16:4rem;--sp20:5rem;
+--fd:'Syne','Inter',sans-serif;--fb:'Inter',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
+--tr:180ms cubic-bezier(.16,1,.3,1);
+}
+[data-theme="light"]{
+--bg:#f7f8fc;--sf:#fff;--s2:#f0f2f7;--so:#e8ecf5;--so2:#dde2ee;--sd:#cdd4e6;--dv:#d0d8ea;--bd:#c0cadf;
+--tx:#1a1f2e;--tm:#5a6480;--tf:#9aa0b4;--ti:#f7f8fc;
+--pr:#cc7a00;--ph:#b36b00;--hl:#fff4e0;
+--bl:#2563eb;--bd2:#dbeafe;--gn:#16a34a;--gd:#dcfce7;--pp:#7c3aed;--pd2:#ede9fe;
+--tl:#0d9488;--td:#ccfbf1;--pk:#db2777;--pkd:#fce7f3;--yw:#d97706;--yd:#fef3c7;--rd:#dc2626;--rdd:#fee2e2;
+--gl:0 0 30px rgba(204,122,0,.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:78px;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--fb);font-size:var(--bs);color:var(--tx);background:var(--bg);line-height:1.65;overflow-x:hidden;}
+h1,h2,h3,h4,h5,h6{font-family:var(--fd);line-height:1.2;}
+p,li{max-width:70ch;}
+img{display:block;max-width:100%;}
+a{color:var(--pr);text-decoration:none;transition:color var(--tr);}
+a:hover{color:var(--ph);}
+button{cursor:pointer;font-family:var(--fb);border:none;background:none;color:inherit;}
+code,pre{font-family:var(--fm);}
+::selection{background:rgba(255,153,0,.2);}
+:focus-visible{outline:2px solid var(--pr);outline-offset:3px;border-radius:var(--r1);}
+::-webkit-scrollbar{width:6px;height:6px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:var(--rf);}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:.4}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+/* Layout */
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--sp6);}
+/* Header */
+.hdr{position:sticky;top:0;z-index:100;background:color-mix(in oklab,var(--bg) 85%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--dv);padding:var(--sp3) 0;}
+.hdr-i{display:flex;align-items:center;justify-content:space-between;gap:var(--sp4);}
+.logo{display:flex;align-items:center;gap:var(--sp3);flex-shrink:0;}
+.logo svg{width:32px;height:32px;}
+.logo-t{font-family:var(--fd);font-size:var(--lg);font-weight:700;}
+.logo-t span{color:var(--pr);}
+.nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+.nl{font-size:var(--xs);font-weight:500;color:var(--tm);padding:var(--sp2) var(--sp3);border-radius:var(--r2);transition:all var(--tr);white-space:nowrap;}
+.nl:hover,.nl.on{color:var(--tx);background:var(--so);}
+.nl.on{color:var(--pr);}
+.hdr-act{display:flex;align-items:center;gap:var(--sp3);flex-shrink:0;}
+.tt-btn{width:36px;height:36px;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;background:var(--so);color:var(--tm);transition:all var(--tr);}
+.tt-btn:hover{background:var(--sd);color:var(--tx);}
+.tt-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+.hbtn{display:none;width:36px;height:36px;border-radius:var(--r2);background:var(--so);align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.hbtn span{width:18px;height:2px;background:var(--tm);border-radius:2px;display:block;}
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:var(--sp20) 0 var(--sp16);background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,153,0,.08) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--dv) 1px,transparent 1px),linear-gradient(90deg,var(--dv) 1px,transparent 1px);background-size:60px 60px;opacity:.3;mask-image:radial-gradient(ellipse 70% 70% at 50% 30%,black 30%,transparent 80%);}
+.hero-c{position:relative;text-align:center;}
+.hbadge{display:inline-flex;align-items:center;gap:var(--sp2);background:var(--hl);border:1px solid rgba(255,153,0,.3);color:var(--pr);font-size:var(--xs);font-weight:600;padding:var(--sp2) var(--sp4);border-radius:var(--rf);margin-bottom:var(--sp6);letter-spacing:.05em;text-transform:uppercase;}
+.hbadge::before{content:'';width:6px;height:6px;background:var(--pr);border-radius:50%;animation:pulse 2s ease-in-out infinite;}
+.h1{font-size:var(--xl2);font-weight:800;line-height:1.1;margin-bottom:var(--sp6);}
+.h1 .ac{color:var(--pr);}
+.h-sub{font-size:var(--lg);color:var(--tm);max-width:60ch;margin:0 auto var(--sp8);}
+.h-stats{display:flex;justify-content:center;gap:var(--sp8);flex-wrap:wrap;margin-bottom:var(--sp10);}
+.h-sn{font-family:var(--fd);font-size:var(--xl);font-weight:700;color:var(--pr);}
+.h-sl{font-size:var(--xs);color:var(--tm);margin-top:var(--sp1);}
+.h-btns{display:flex;justify-content:center;gap:var(--sp3);flex-wrap:wrap;}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:var(--sp2);padding:var(--sp3) var(--sp6);border-radius:var(--r3);font-size:var(--sm);font-weight:600;transition:all var(--tr);border:1px solid transparent;}
+.btn-p{background:var(--pr);color:#0d0f14;box-shadow:0 4px 20px rgba(255,153,0,.3);}
+.btn-p:hover{background:var(--ph);transform:translateY(-1px);color:#0d0f14;}
+.btn-g{background:var(--so);color:var(--tx);border-color:var(--bd);}
+.btn-g:hover{background:var(--sd);border-color:var(--pr);color:var(--pr);}
+.btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0;}
+/* Sections */
+.sec{padding:clamp(var(--sp12),6vw,var(--sp20)) 0;}
+.s-lbl{font-size:var(--xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pr);margin-bottom:var(--sp4);}
+.s-ttl{font-size:var(--xl);font-weight:800;margin-bottom:var(--sp4);}
+.s-dsc{font-size:var(--bs);color:var(--tm);max-width:60ch;margin-bottom:var(--sp10);}
+/* Arch diagram */
+.arch{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r5);padding:var(--sp8);box-shadow:var(--gl);}
+.arch-t{font-size:var(--sm);font-weight:700;color:var(--tm);text-align:center;margin-bottom:var(--sp8);letter-spacing:.05em;text-transform:uppercase;}
+.arch-ls{display:flex;flex-direction:column;gap:var(--sp4);}
+.arch-l{border-radius:var(--r4);padding:var(--sp5) var(--sp6);}
+.arch-ll{font-size:var(--xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--sp4);}
+.arch-ms{display:flex;gap:var(--sp3);flex-wrap:wrap;}
+.arch-m{display:flex;align-items:center;gap:var(--sp2);background:var(--bg);border:1px solid var(--bd);border-radius:var(--r3);padding:var(--sp2) var(--sp4);font-size:var(--xs);font-weight:600;transition:all var(--tr);cursor:pointer;}
+.arch-m:hover{transform:translateY(-2px);box-shadow:var(--sh2);}
+.arch-m .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.l-blue{background:color-mix(in oklab,var(--bd2) 60%,var(--sf));border:1px solid color-mix(in oklab,var(--bl) 20%,var(--bd));}
+.l-green{background:color-mix(in oklab,var(--gd) 60%,var(--sf));border:1px solid color-mix(in oklab,var(--gn) 20%,var(--bd));}
+.l-purple{background:color-mix(in oklab,var(--pd2) 60%,var(--sf));border:1px solid color-mix(in oklab,var(--pp) 20%,var(--bd));}
+.l-yellow{background:color-mix(in oklab,var(--yd) 60%,var(--sf));border:1px solid color-mix(in oklab,var(--yw) 20%,var(--bd));}
+/* Analogy box */
+.ab{background:var(--so);border-left:3px solid var(--pr);border-radius:0 var(--r2) var(--r2) 0;padding:var(--sp4) var(--sp5);margin:var(--sp4) 0;}
+.ab-lbl{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pr);margin-bottom:var(--sp2);}
+.ab p{font-size:var(--sm);color:var(--tx);max-width:none;font-style:italic;}
+/* Feature list */
+.fl{list-style:none;display:flex;flex-direction:column;gap:var(--sp2);margin:var(--sp4) 0;}
+.fl li{display:flex;align-items:flex-start;gap:var(--sp3);font-size:var(--sm);color:var(--tm);}
+.fl li::before{content:'→';color:var(--pr);font-weight:700;margin-top:1px;flex-shrink:0;}
+/* Code block */
+.cb{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r3);overflow:hidden;margin:var(--sp4) 0;}
+.cb-h{display:flex;align-items:center;justify-content:space-between;padding:var(--sp2) var(--sp4);background:var(--so);border-bottom:1px solid var(--bd);}
+.cb-l{font-size:var(--xs);font-weight:600;color:var(--tm);letter-spacing:.05em;}
+.cb-d{display:flex;gap:6px;}
+.cb-d span{width:10px;height:10px;border-radius:50%;}
+.d1{background:#ff5f57!important;}.d2{background:#febc2e!important;}.d3{background:#28c840!important;}
+.cb pre{padding:var(--sp4);overflow-x:auto;}
+.cb code{font-size:var(--xs);line-height:1.7;color:var(--tx);}
+.kw{color:#c792ea;}.st{color:#c3e88d;}.nu{color:#f78c6c;}.cm{color:#546e7a;}.fn{color:#82aaff;}.vr{color:var(--pr);}
+/* Concept card */
+.cc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);overflow:hidden;margin-bottom:var(--sp6);transition:all var(--tr);}
+.cc:hover{border-color:rgba(255,153,0,.3);}
+.cc-h{padding:var(--sp6) var(--sp8);background:linear-gradient(135deg,var(--so) 0%,var(--sf) 100%);border-bottom:1px solid var(--dv);display:grid;grid-template-columns:auto 1fr auto;gap:var(--sp5);align-items:start;}
+.cc-ico{width:56px;height:56px;border-radius:var(--r4);display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+.cc-m h2{font-size:var(--lg);font-weight:800;margin-bottom:var(--sp2);}
+.cc-m p{font-size:var(--sm);color:var(--tm);max-width:60ch;}
+.cc-tags{display:flex;align-items:center;gap:var(--sp2);flex-wrap:wrap;justify-content:flex-end;}
+/* Badges */
+.bdg{font-size:var(--xs);font-weight:600;padding:3px 10px;border-radius:var(--rf);border:1px solid transparent;}
+.bo{background:var(--hl);color:var(--pr);border-color:rgba(255,153,0,.3);}
+.bb{background:var(--bd2);color:var(--bl);}
+.bg{background:var(--gd);color:var(--gn);}
+.bpu{background:var(--pd2);color:var(--pp);}
+.bt{background:var(--td);color:var(--tl);}
+.bpk{background:var(--pkd);color:var(--pk);}
+.by{background:var(--yd);color:var(--yw);}
+.cc-body{padding:var(--sp6) var(--sp8);}
+/* Two column */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp8);}
+/* Sub title */
+.subt{font-size:var(--sm);font-weight:700;color:var(--tx);margin-bottom:var(--sp4);display:flex;align-items:center;gap:var(--sp2);}
+.subt::before{content:'▸';color:var(--pr);}
+/* Table */
+.tbl{width:100%;border-collapse:collapse;border-radius:var(--r4);overflow:hidden;border:1px solid var(--bd);font-size:var(--sm);}
+.tbl th{background:var(--so);color:var(--tm);font-size:var(--xs);font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:var(--sp3) var(--sp5);text-align:left;border-bottom:1px solid var(--bd);}
+.tbl td{padding:var(--sp3) var(--sp5);border-bottom:1px solid var(--dv);color:var(--tm);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl tr:hover td{background:var(--so);color:var(--tx);}
+.hl2{color:var(--pr);font-weight:600;}
+/* Memory diagram */
+.mem-d{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp6);text-align:center;}
+.mem-f{display:flex;align-items:center;gap:var(--sp3);flex-wrap:wrap;justify-content:center;margin:var(--sp4) 0;}
+.mem-n{background:var(--so);border:1px solid var(--bd);border-radius:var(--r3);padding:var(--sp3) var(--sp4);font-size:var(--xs);font-weight:600;min-width:100px;text-align:center;}
+.mem-a{color:var(--pr);font-size:1.2rem;}
+.sp-pills{display:flex;gap:var(--sp2);flex-wrap:wrap;justify-content:center;margin-top:var(--sp4);}
+.sp-pill{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rf);padding:var(--sp2) var(--sp4);font-size:var(--xs);font-weight:600;transition:all var(--tr);}
+.sp-pill:hover{border-color:var(--pr);color:var(--pr);}
+/* Protocol cards */
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--sp4);}
+.pc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp5);transition:all var(--tr);}
+.pc:hover{transform:translateY(-3px);box-shadow:var(--sh2);}
+.p-ico{font-size:2rem;margin-bottom:var(--sp3);}
+.p-nm{font-size:var(--sm);font-weight:700;margin-bottom:var(--sp2);}
+.p-ds{font-size:var(--xs);color:var(--tm);}
+/* Gateway flow */
+.gf{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:var(--sp4);padding:var(--sp6);background:var(--bg);border:1px solid var(--bd);border-radius:var(--r4);}
+.gn{background:var(--so);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp5);text-align:center;transition:all var(--tr);}
+.gn:hover{border-color:var(--pr);}
+.gn-i{font-size:1.8rem;margin-bottom:var(--sp3);}
+.gn-t{font-size:var(--sm);font-weight:700;margin-bottom:var(--sp2);}
+.gn-d{font-size:var(--xs);color:var(--tm);}
+.g-arr{font-size:1.5rem;color:var(--pr);text-align:center;}
+/* Identity steps */
+.id-steps{display:flex;flex-direction:column;gap:var(--sp4);}
+.id-s{display:flex;gap:var(--sp5);align-items:flex-start;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp5);transition:all var(--tr);}
+.id-s:hover{border-color:var(--pr);}
+.s-num{width:36px;height:36px;border-radius:var(--rf);background:var(--pr);color:#0d0f14;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:var(--sm);flex-shrink:0;}
+.s-c h4{font-size:var(--sm);font-weight:700;margin-bottom:var(--sp2);}
+.s-c p{font-size:var(--sm);color:var(--tm);max-width:none;}
+/* Metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--sp4);margin-bottom:var(--sp6);}
+.mt-c{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp5);text-align:center;transition:all var(--tr);}
+.mt-c:hover{transform:translateY(-2px);}
+.mt-i{font-size:1.6rem;margin-bottom:var(--sp3);}
+.mt-n{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--tm);margin-bottom:var(--sp2);}
+.mt-v{font-size:var(--lg);font-weight:800;font-family:var(--fd);}
+/* Session isolation */
+.sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp4);}
+.sess{background:var(--sf);border:2px solid var(--bd);border-radius:var(--r4);padding:var(--sp5);transition:all var(--tr);}
+.sess:hover{border-color:var(--pr);}
+.sess::before{content:'Session';font-size:var(--xs);font-weight:700;color:var(--tf);text-transform:uppercase;display:block;margin-bottom:var(--sp3);}
+.sess-b{background:var(--gd);color:var(--gn);font-size:var(--xs);font-weight:600;padding:2px 8px;border-radius:var(--rf);margin-bottom:var(--sp3);display:inline-block;}
+.sess-i{font-size:var(--xs);color:var(--tm);display:flex;align-items:center;gap:var(--sp2);margin-bottom:4px;}
+.sess-i::before{content:'▸';color:var(--pr);font-size:.7em;}
+/* Chips */
+.chips{display:flex;gap:var(--sp3);flex-wrap:wrap;}
+.chip{display:flex;align-items:center;gap:var(--sp2);background:var(--so);border:1px solid var(--bd);border-radius:var(--rf);padding:var(--sp2) var(--sp4);font-size:var(--xs);font-weight:600;color:var(--tm);transition:all var(--tr);}
+.chip:hover{border-color:var(--pr);color:var(--pr);}
+/* Browser demo */
+.br-demo{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r4);overflow:hidden;}
+.br-chrome{background:var(--so);padding:var(--sp3) var(--sp4);display:flex;align-items:center;gap:var(--sp3);border-bottom:1px solid var(--bd);}
+.br-dots{display:flex;gap:6px;}
+.br-dots span{width:10px;height:10px;border-radius:50%;}
+.br-url{flex:1;background:var(--bg);border:1px solid var(--bd);border-radius:var(--rf);padding:var(--sp1) var(--sp4);font-size:var(--xs);color:var(--tm);font-family:var(--fm);}
+.br-body{padding:var(--sp5);}
+.br-act{display:flex;align-items:center;gap:var(--sp3);padding:var(--sp3);border-radius:var(--r2);font-size:var(--xs);margin-bottom:var(--sp2);background:var(--sf);}
+.act-b{font-size:.85em;font-weight:700;min-width:70px;text-align:center;padding:2px 6px;border-radius:var(--r1);}
+.a-nav{background:var(--bd2);color:var(--bl);}
+.a-clk{background:var(--gd);color:var(--gn);}
+.a-ext{background:var(--pd2);color:var(--pp);}
+.a-ss{background:var(--yd);color:var(--yw);}
+/* Progress */
+.prog{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp5);margin-bottom:var(--sp8);}
+.prog-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp4);}
+.prog-t{font-size:var(--sm);font-weight:700;}
+.prog-c{font-size:var(--xs);color:var(--tm);}
+.prog-tr{height:6px;background:var(--so);border-radius:var(--rf);overflow:hidden;}
+.prog-f{height:100%;background:linear-gradient(90deg,var(--pr),var(--ph));border-radius:var(--rf);transition:width .6s cubic-bezier(.16,1,.3,1);}
+.prog-ms{display:flex;gap:var(--sp2);flex-wrap:wrap;margin-top:var(--sp4);}
+.pdot{width:32px;height:32px;border-radius:var(--rf);display:flex;align-items:center;justify-content:center;font-size:.85rem;border:1.5px solid var(--bd);background:var(--so);cursor:pointer;transition:all var(--tr);}
+.pdot:hover{border-color:var(--pr);transform:scale(1.1);}
+.pdot.done{background:var(--gd);border-color:var(--gn);}
+/* Quick start */
+.qs{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);overflow:hidden;}
+.qs-h{background:var(--so);padding:var(--sp5) var(--sp6);border-bottom:1px solid var(--dv);display:flex;align-items:center;gap:var(--sp3);}
+.qs-h h3{font-size:var(--bs);font-weight:700;}
+.qs-b{padding:var(--sp6);}
+.qs-s{display:flex;flex-direction:column;gap:var(--sp6);}
+.qs-step{display:flex;gap:var(--sp5);}
+.qs-n{width:28px;height:28px;border-radius:var(--rf);background:var(--hl);border:1.5px solid var(--pr);color:var(--pr);display:flex;align-items:center;justify-content:center;font-size:var(--xs);font-weight:800;flex-shrink:0;margin-top:2px;}
+.qs-c h4{font-size:var(--sm);font-weight:700;margin-bottom:var(--sp2);}
+.qs-c p{font-size:var(--sm);color:var(--tm);max-width:none;}
+/* Divider */
+.div{height:1px;background:var(--dv);margin:var(--sp6) 0;}
+/* News/updates */
+.news-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp5) var(--sp6);transition:all var(--tr);border-left:3px solid var(--pr);}
+.news-card:hover{transform:translateY(-1px);box-shadow:var(--sh2);}
+.news-date{font-size:var(--xs);color:var(--tm);margin-bottom:var(--sp2);}
+.news-t{font-size:var(--sm);font-weight:700;margin-bottom:var(--sp2);}
+.news-d{font-size:var(--xs);color:var(--tm);}
+/* Footer */
+.ftr{background:var(--sf);border-top:1px solid var(--dv);padding:var(--sp10) 0;margin-top:var(--sp20);}
+.ftr-i{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--sp8);}
+.ftr-b p{font-size:var(--sm);color:var(--tm);max-width:30ch;margin-top:var(--sp4);}
+.ftr-col h4{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--tm);margin-bottom:var(--sp4);}
+.ftr-ls{display:flex;flex-direction:column;gap:var(--sp2);}
+.ftr-ls a{font-size:var(--sm);color:var(--tm);transition:color var(--tr);}
+.ftr-ls a:hover{color:var(--pr);}
+.ftr-bot{border-top:1px solid var(--dv);margin-top:var(--sp8);padding-top:var(--sp6);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sp4);}
+.ftr-bot p{font-size:var(--xs);color:var(--tf);}
+/* Helpers */
+.mt4{margin-top:var(--sp4);}.mb4{margin-bottom:var(--sp4);}.mb6{margin-bottom:var(--sp6);}
+/* Responsive */
+@media(max-width:900px){.two{grid-template-columns:1fr;}.cc-h{grid-template-columns:auto 1fr;}.cc-tags{grid-column:1/-1;}.gf{grid-template-columns:1fr;}.ftr-i{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.nav{display:none;}.nav.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--dv);padding:var(--sp4);z-index:99;}.hbtn{display:flex;}.sessions{grid-template-columns:1fr 1fr;}.tbl{font-size:var(--xs);}.tbl th,.tbl td{padding:var(--sp2) var(--sp3);}}
+@media(max-width:480px){.sessions{grid-template-columns:1fr;}.ftr-i{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="hdr">
+<div class="wrap hdr-i">
+<div class="logo">
+<svg viewBox="0 0 32 32" fill="none" aria-label="AgentCore Logo">
+<rect width="32" height="32" rx="8" fill="#FF9900" opacity=".15"/>
+<polygon points="16,4 28,10 28,22 16,28 4,22 4,10" fill="none" stroke="#FF9900" stroke-width="1.5"/>
+<circle cx="16" cy="16" r="5" fill="#FF9900"/>
+<line x1="16" y1="4" x2="16" y2="11" stroke="#FF9900" stroke-width="1.5"/>
+<line x1="28" y1="10" x2="22" y2="13" stroke="#FF9900" stroke-width="1.5"/>
+<line x1="28" y1="22" x2="22" y2="19" stroke="#FF9900" stroke-width="1.5"/>
+<line x1="16" y1="28" x2="16" y2="21" stroke="#FF9900" stroke-width="1.5"/>
+<line x1="4" y1="22" x2="10" y2="19" stroke="#FF9900" stroke-width="1.5"/>
+<line x1="4" y1="10" x2="10" y2="13" stroke="#FF9900" stroke-width="1.5"/>
+</svg>
+<span class="logo-t">Agent<span>Core</span></span>
+</div>
+<nav class="nav" id="nav">
+<a href="#overview" class="nl on" data-s="overview">Overview</a>
+<a href="#runtime" class="nl" data-s="runtime">Runtime</a>
+<a href="#memory" class="nl" data-s="memory">Memory</a>
+<a href="#gateway" class="nl" data-s="gateway">Gateway</a>
+<a href="#identity" class="nl" data-s="identity">Identity</a>
+<a href="#browser" class="nl" data-s="browser">Browser</a>
+<a href="#code-interpreter" class="nl" data-s="code">Code Interp.</a>
+<a href="#observability" class="nl" data-s="obs">Observability</a>
+<a href="#policy" class="nl" data-s="policy">Policy</a>
+</nav>
+<div class="hdr-act">
+<button class="tt-btn" data-tt aria-label="Toggle theme">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
+<button class="hbtn" id="hbtn"><span></span><span></span><span></span></button>
+</div>
+</div>
+</header>
+
+<section class="hero" id="overview">
+<div class="hero-grid"></div>
+<div class="wrap hero-c">
+<div class="hbadge">AWS re:Invent Dec 2025 &bull; GA October 13, 2025 &bull; Spring AI SDK Apr 2026</div>
+<h1 class="h1">Master <span class="ac">AWS AgentCore</span><br/>10 Concepts — Deeply Explained</h1>
+<p class="h-sub">Amazon Bedrock AgentCore — the enterprise platform to build, deploy &amp; operate production AI agents securely at scale. Every concept, every analogy, every code example. Updated through April 2026.</p>
+<div class="h-stats">
+<div><div class="h-sn">10</div><div class="h-sl">Core Concepts</div></div>
+<div><div class="h-sn">1M+</div><div class="h-sl">SDK Downloads</div></div>
+<div><div class="h-sn">8h</div><div class="h-sl">Max Session</div></div>
+<div><div class="h-sn">GA</div><div class="h-sl">Oct 13, 2025</div></div>
+</div>
+<div class="h-btns">
+<a href="#runtime" class="btn btn-p"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>Start Learning</a>
+<a href="#cheatsheet" class="btn btn-g"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>Quick Reference</a>
+</div>
+</div>
+</section>
+
+<section class="sec" id="what-is">
+<div class="wrap">
+<div class="s-lbl">Foundation</div>
+<h2 class="s-ttl">What is AWS AgentCore?</h2>
+<p class="s-dsc">Amazon Bedrock AgentCore is a fully managed, modular platform for building and operating AI agents. It works with <strong>any framework</strong> (LangGraph, CrewAI, Strands, OpenAI SDK, Google ADK) and any model (Claude, Nova, Gemini, GPT-4, Llama). Available across AWS regions since October 13, 2025.</p>
+<div class="arch">
+<div class="arch-t">AgentCore Complete Architecture — All 10 Pillars</div>
+<div class="arch-ls">
+<div class="arch-l l-yellow">
+<div class="arch-ll" style="color:var(--yw)">&#128279; Protocols Layer — How agents communicate</div>
+<div class="arch-ms">
+<div class="arch-m"><span class="dot" style="background:var(--yw)"></span>MCP (Model Context Protocol)</div>
+<div class="arch-m"><span class="dot" style="background:var(--yw)"></span>A2A (Agent-to-Agent)</div>
+<div class="arch-m"><span class="dot" style="background:var(--yw)"></span>AGUI Protocol</div>
+<div class="arch-m"><span class="dot" style="background:var(--yw)"></span>Bidirectional Streaming (WebRTC/WS)</div>
+</div>
+</div>
+<div class="arch-l l-blue">
+<div class="arch-ll" style="color:var(--bl)">&#9881;&#65039; Infrastructure Layer — Execution &amp; Monitoring</div>
+<div class="arch-ms">
+<div class="arch-m"><span class="dot" style="background:var(--bl)"></span>Runtime (Firecracker microVM)</div>
+<div class="arch-m"><span class="dot" style="background:var(--bl)"></span>Bidirectional Streaming</div>
+<div class="arch-m"><span class="dot" style="background:var(--bl)"></span>Observability (CloudWatch/OTEL)</div>
+</div>
+</div>
+<div class="arch-l l-green">
+<div class="arch-ll" style="color:var(--gn)">&#128295; Tools &amp; Capabilities Layer</div>
+<div class="arch-ms">
+<div class="arch-m"><span class="dot" style="background:var(--gn)"></span>Gateway (MCP tools)</div>
+<div class="arch-m"><span class="dot" style="background:var(--gn)"></span>Memory (5 strategies)</div>
+<div class="arch-m"><span class="dot" style="background:var(--gn)"></span>Browser Tool</div>
+<div class="arch-m"><span class="dot" style="background:var(--gn)"></span>Code Interpreter</div>
+</div>
+</div>
+<div class="arch-l l-purple">
+<div class="arch-ll" style="color:var(--pp)">&#128272; Security &amp; Governance Layer</div>
+<div class="arch-ms">
+<div class="arch-m"><span class="dot" style="background:var(--pp)"></span>Identity (OAuth/IAM/Workload)</div>
+<div class="arch-m"><span class="dot" style="background:var(--pp)"></span>Policy (Cedar — Dec 2025)</div>
+<div class="arch-m"><span class="dot" style="background:var(--pp)"></span>VPC/PrivateLink</div>
+<div class="arch-m"><span class="dot" style="background:var(--pp)"></span>KMS + CloudTrail</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ab mt4">
+<div class="ab-lbl">&#128161; The Master Analogy</div>
+<p>AWS AgentCore is your <strong>smart city infrastructure for AI agents</strong>. Runtime = city roads &amp; power grid. Memory = city hall records. Gateway = telephone exchange. Identity = passport office. Policy = security guards at every door. Browser = city research department. Code Interpreter = city analytics lab. Observability = city surveillance &amp; reporting center. Protocols = the different languages citizens speak.</p>
+</div>
+</div>
+</section>
+
+<section style="padding:var(--sp4) 0 0">
+<div class="wrap">
+<div class="prog">
+<div class="prog-h"><span class="prog-t">&#127919; Learning Progress — click dots or scroll sections</span><span class="prog-c" id="pCnt">0 / 9 concepts</span></div>
+<div class="prog-tr"><div class="prog-f" id="pBar" style="width:0%"></div></div>
+<div class="prog-ms">
+<div class="pdot" id="pd-runtime" title="Runtime" onclick="tp('runtime')">&#9889;</div>
+<div class="pdot" id="pd-memory" title="Memory" onclick="tp('memory')">&#129504;</div>
+<div class="pdot" id="pd-gateway" title="Gateway" onclick="tp('gateway')">&#128256;</div>
+<div class="pdot" id="pd-identity" title="Identity" onclick="tp('identity')">&#128272;</div>
+<div class="pdot" id="pd-browser" title="Browser" onclick="tp('browser')">&#127760;</div>
+<div class="pdot" id="pd-code" title="Code Interpreter" onclick="tp('code')">&#128187;</div>
+<div class="pdot" id="pd-obs" title="Observability" onclick="tp('obs')">&#128202;</div>
+<div class="pdot" id="pd-policy" title="Policy" onclick="tp('policy')">&#128274;</div>
+<div class="pdot" id="pd-proto" title="Protocols" onclick="tp('proto')">&#128268;</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="runtime">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--bd2)">&#9889;</div>
+<div class="cc-m">
+<h2>1. AgentCore Runtime</h2>
+<p>The secure serverless execution engine for AI agents — built on Firecracker microVMs, supporting 8-hour sessions, session isolation, multi-protocol, and any AI framework without infrastructure management.</p>
+</div>
+<div class="cc-tags"><span class="bdg bb">Firecracker microVMs</span><span class="bdg bg">8h sessions</span><span class="bdg bo">Framework agnostic</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4">
+<div class="ab-lbl">&#128161; Analogy</div>
+<p>Runtime is like a <strong>premium hotel where every guest gets their own private suite</strong> — completely isolated, fully furnished from scratch. When the guest checks out, the suite is demolished and rebuilt new. The hotel handles all plumbing, electricity, and maintenance. You only pay for occupied time. Each suite lasts up to 8 hours and supports any conversation, no matter how complex.</p>
+</div>
+<div class="two">
+<div>
+<div class="subt">Core Capabilities</div>
+<ul class="fl">
+<li>Firecracker microVM per session — true security isolation</li>
+<li>Sessions up to 8 hours — longest in the industry</li>
+<li>Multi-protocol: MCP, A2A, AGUI, HTTP/REST, WebRTC</li>
+<li>Session affinity via <code>runtimeSessionId</code></li>
+<li>Auto-scaling — serverless, pay per compute second</li>
+<li>Works with LangGraph, CrewAI, Strands, OpenAI SDK, ADK</li>
+<li>Any model: Claude, Nova, GPT-4, Gemini, Llama, Mistral</li>
+<li>Bidirectional streaming for voice agents (Dec 2025)</li>
+<li>Spring AI SDK support (GA April 14, 2026)</li>
+<li>VPC/PrivateLink for enterprise network isolation</li>
+</ul>
+<div class="subt mt4">Session Isolation — 3 Users, 3 Isolated VMs</div>
+<div class="sessions">
+<div class="sess"><span class="sess-b">User A</span><div><div class="sess-i">Isolated compute</div><div class="sess-i">Private filesystem</div><div class="sess-i">Own credentials</div><div class="sess-i">Wiped on exit</div></div></div>
+<div class="sess"><span class="sess-b">User B</span><div><div class="sess-i">Isolated compute</div><div class="sess-i">Private filesystem</div><div class="sess-i">Own credentials</div><div class="sess-i">Wiped on exit</div></div></div>
+<div class="sess"><span class="sess-b">User C</span><div><div class="sess-i">Isolated compute</div><div class="sess-i">Private filesystem</div><div class="sess-i">Own credentials</div><div class="sess-i">Wiped on exit</div></div></div>
+</div>
+</div>
+<div>
+<div class="cb mt4">
+<div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">PYTHON — MULTI-TURN SESSION</span></div>
+<pre><code><span class="cm"># Multi-turn: same runtimeSessionId = shared context</span>
+<span class="vr">r1</span> = <span class="fn">client</span>.<span class="fn">InvokeAgentRuntime</span>(
+  <span class="vr">agentRuntimeArn</span>=<span class="st">"arn:aws:bedrock-agentcore:..."</span>,
+  <span class="vr">runtimeSessionId</span>=<span class="st">"user-123-sess-456"</span>,
+  <span class="vr">payload</span>=<span class="fn">json.dumps</span>({<span class="st">"prompt"</span>:<span class="st">"Analyze Q3 data"</span>}).<span class="fn">encode</span>()
+)
+<span class="cm"># Same session continues — full context preserved</span>
+<span class="vr">r2</span> = <span class="fn">client</span>.<span class="fn">InvokeAgentRuntime</span>(
+  <span class="vr">agentRuntimeArn</span>=<span class="st">"arn:aws:bedrock-agentcore:..."</span>,
+  <span class="vr">runtimeSessionId</span>=<span class="st">"user-123-sess-456"</span>,
+  <span class="vr">payload</span>=<span class="fn">json.dumps</span>({<span class="st">"prompt"</span>:<span class="st">"Now compare to Q2"</span>}).<span class="fn">encode</span>()
+)</code></pre>
+</div>
+<div class="subt mt4">Deploy with Strands SDK (Fastest Path)</div>
+<div class="cb">
+<div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">CLI + PYTHON</span></div>
+<pre><code><span class="kw">from</span> strands <span class="kw">import</span> Agent
+<span class="vr">agent</span> = <span class="fn">Agent</span>(<span class="vr">model</span>=<span class="st">"us.amazon.nova-pro-v1:0"</span>)
+
+<span class="cm"># Deploy to AgentCore with one command:</span>
+<span class="cm"># agentcore deploy --name my-agent --region us-east-1</span>
+<span class="cm"># ✓ arn:aws:bedrock-agentcore:us-east-1:123:runtime/...</span></code></pre>
+</div>
+<div class="subt mt4">Compatible Frameworks</div>
+<div class="chips">
+<span class="chip">LangGraph</span><span class="chip">CrewAI</span><span class="chip">LlamaIndex</span>
+<span class="chip">Strands Agents</span><span class="chip">OpenAI SDK</span><span class="chip">Google ADK</span>
+<span class="chip">AutoGen</span><span class="chip">Spring AI (Apr 2026)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="memory">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--pd2)">&#129504;</div>
+<div class="cc-m">
+<h2>2. AgentCore Memory</h2>
+<p>Fully managed short-term and long-term memory for AI agents. 5 extraction strategies including Episodic Memory (Dec 2025). Streaming notifications for long-term memory updates (March 2026). No vector DB to manage.</p>
+</div>
+<div class="cc-tags"><span class="bdg bpu">Short + Long-term</span><span class="bdg bb">Vector-backed</span><span class="bdg bo">5 strategies</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4">
+<div class="ab-lbl">&#128161; Analogy</div>
+<p>Memory is like a <strong>personal assistant with two notebooks plus a case history binder</strong>. Notebook 1 (short-term) = today's desk notes. Notebook 2 (long-term) = indexed filing cabinet of key facts, preferences, and past decisions. The binder (episodic) = complete patient records: what was tried, what worked, what failed — enabling learning across thousands of cases. Plus (March 2026): the assistant now calls you the moment a new fact is filed.</p>
+</div>
+<div class="two">
+<div>
+<div class="subt">Memory Architecture</div>
+<div class="mem-d">
+<div class="mem-f">
+<div class="mem-n" style="border-color:var(--bl)">&#128172; Conversations<br/><small style="color:var(--tm)">Raw Events</small></div>
+<span class="mem-a">&#8594;</span>
+<div class="mem-n" style="border-color:var(--yw)">&#9889; Short-Term<br/><small style="color:var(--tm)">Session-scoped</small></div>
+<span class="mem-a">&#8594;</span>
+<div class="mem-n" style="border-color:var(--pp)">&#127963; Long-Term<br/><small style="color:var(--tm)">Auto-extracted</small></div>
+</div>
+<div style="font-size:var(--xs);color:var(--tm);margin:var(--sp3) 0">5 Extraction Strategies</div>
+<div class="sp-pills">
+<span class="sp-pill" style="border-color:var(--bl);color:var(--bl)">&#128221; Summary</span>
+<span class="sp-pill" style="border-color:var(--pp);color:var(--pp)">&#129513; Semantic</span>
+<span class="sp-pill" style="border-color:var(--gn);color:var(--gn)">&#10084; Preferences</span>
+<span class="sp-pill" style="border-color:var(--tl);color:var(--tl)">&#127963; Episodic (Dec 2025)</span>
+<span class="sp-pill" style="border-color:var(--yw);color:var(--yw)">&#9881;&#65039; Self-Managed</span>
+</div>
+</div>
+<div class="subt mt4">3 Key Identifiers</div>
+<ul class="fl">
+<li><code>memoryId</code> — Container (create once, reuse always)</li>
+<li><code>actorId</code> — Owner identity (userId or agentId)</li>
+<li><code>sessionId</code> — Groups related conversation events</li>
+</ul>
+<div class="subt mt4">March 2026 Update</div>
+<ul class="fl">
+<li>Streaming notifications for long-term memory via Kinesis</li>
+<li>Push notifications when memory records created/modified</li>
+<li>Eliminates polling — trigger downstream workflows automatically</li>
+</ul>
+</div>
+<div>
+<div class="cb">
+<div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">PYTHON — CREATE + STORE + RETRIEVE</span></div>
+<pre><code><span class="cm"># 1. Create memory container (once per app)</span>
+<span class="vr">mem</span> = <span class="fn">client</span>.<span class="fn">create_memory</span>(
+  <span class="vr">name</span>=<span class="st">"SupportAgentMemory"</span>,
+  <span class="vr">eventExpiryDuration</span>=<span class="nu">30</span>  <span class="cm"># days</span>
+)
+
+<span class="cm"># 2. Store a conversation event</span>
+<span class="fn">client</span>.<span class="fn">create_event</span>(
+  <span class="vr">memoryId</span>=<span class="st">"mem-abc123"</span>,
+  <span class="vr">actorId</span>=<span class="st">"user-456"</span>,
+  <span class="vr">sessionId</span>=<span class="st">"sess-789"</span>,
+  <span class="vr">payload</span>=[{<span class="st">"conversational"</span>: {
+    <span class="st">"content"</span>: {<span class="st">"text"</span>: <span class="st">"I prefer Python over JavaScript"</span>},
+    <span class="st">"role"</span>: <span class="st">"USER"</span>
+  }}]
+)
+
+<span class="cm"># 3. Retrieve via semantic search</span>
+<span class="vr">facts</span> = <span class="fn">client</span>.<span class="fn">retrieve_memory_records</span>(
+  <span class="vr">memoryId</span>=<span class="st">"mem-abc123"</span>,
+  <span class="vr">namespace</span>=<span class="st">"/users/456/preferences"</span>,
+  <span class="vr">query</span>=<span class="st">"What programming language does user prefer?"</span>
+)</code></pre>
+</div>
+</div>
+</div>
+<div class="div"></div>
+<div class="subt">All 5 Memory Extraction Strategies</div>
+<table class="tbl">
+<thead><tr><th>#</th><th>Strategy</th><th>What It Extracts</th><th>Best For</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td>1</td><td class="hl2">&#128221; Summary</td><td>Ongoing XML narrative summaries per session/topic</td><td>Customer support, long multi-turn conversations</td><td>GA Oct 2025</td></tr>
+<tr><td>2</td><td class="hl2">&#129513; Semantic</td><td>Key facts, named entities, knowledge base entries</td><td>RAG enrichment, factual recall, Q&amp;A</td><td>GA Oct 2025</td></tr>
+<tr><td>3</td><td class="hl2">&#10084; Preferences</td><td>User likes, dislikes, stated behaviors, settings</td><td>Personalization, product recommendations</td><td>GA Oct 2025</td></tr>
+<tr><td>4</td><td class="hl2">&#127963; Episodic</td><td>Full experiences: situation &rarr; tools used &rarr; outcome &rarr; lessons. Cross-episode reflections.</td><td>Troubleshooting, code agents, complex workflow automation</td><td>re:Invent Dec 2025</td></tr>
+<tr><td>5</td><td class="hl2">&#9881;&#65039; Self-Managed</td><td>Fully custom extraction — your prompts, your model</td><td>Advanced/custom business logic</td><td>GA Oct 2025</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="gateway">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--gd)">&#128256;</div>
+<div class="cc-m"><h2>3. AgentCore Gateway</h2><p>The universal adapter converting APIs, Lambda functions, and MCP servers into agent-ready tools. Semantic natural language discovery, zero-code integration, and dual-sided security — all via the MCP standard.</p></div>
+<div class="cc-tags"><span class="bdg bg">MCP Native</span><span class="bdg bb">Semantic Search</span><span class="bdg bo">Zero-code tools</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Gateway is like a <strong>universal power adapter combined with a smart hotel concierge</strong>. Your agent speaks "MCP" but enterprise tools speak REST, SOAP, Lambda, or Smithy. Gateway plugs them all in. When the agent says "create a Jira ticket", the semantic concierge finds the right tool instantly among thousands, without the agent needing to know every tool by name.</p></div>
+<div class="two">
+<div>
+<div class="subt">Request Flow</div>
+<div class="gf">
+<div class="gn"><div class="gn-i">&#129302;</div><div class="gn-t">AI Agent</div><div class="gn-d">Requests a tool to complete its task</div></div>
+<div class="g-arr">&#8594;</div>
+<div class="gn" style="border-color:var(--gn)"><div class="gn-i">&#128256;</div><div class="gn-t" style="color:var(--gn)">AgentCore Gateway</div><div class="gn-d">Semantic search + Auth + Policy + Audit</div></div>
+<div class="g-arr">&#8594;</div>
+<div class="gn"><div class="gn-i">&#128295;</div><div class="gn-t">Enterprise Tools</div><div class="gn-d">APIs, Lambda, Salesforce, Slack, Jira</div></div>
+</div>
+<ul class="fl mt4">
+<li>Convert OpenAPI specs to MCP tools — zero code needed</li>
+<li>Semantic tool discovery: <code>x_amz_bedrock_agentcore_search</code></li>
+<li>One-click integrations: Salesforce, Slack, Jira, Zendesk</li>
+<li>Connect existing MCP servers via endpoint URL</li>
+<li>Dual-sided auth: inbound (IAM/OAuth) + outbound (to tools)</li>
+<li>Cedar Policy integration — every tool call intercepted</li>
+</ul>
+</div>
+<div>
+<div class="subt">Supported Input Types</div>
+<div class="pg" style="grid-template-columns:repeat(2,1fr)">
+<div class="pc"><div class="p-ico">&#128196;</div><div class="p-nm">OpenAPI Spec</div><div class="p-ds">Auto-convert REST APIs to MCP tools</div></div>
+<div class="pc"><div class="p-ico">&#9889;</div><div class="p-nm">AWS Lambda</div><div class="p-ds">Wrap Lambda as agent tools instantly</div></div>
+<div class="pc"><div class="p-ico">&#128307;</div><div class="p-nm">Smithy Models</div><div class="p-ds">Native AWS service definitions</div></div>
+<div class="pc"><div class="p-ico">&#128268;</div><div class="p-nm">MCP Servers</div><div class="p-ds">Connect existing MCP endpoints</div></div>
+</div>
+<div class="cb mt4"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">SEMANTIC TOOL DISCOVERY</span></div>
+<pre><code><span class="cm"># Agent finds the right tool via natural language</span>
+<span class="fn">invoke_gateway</span>(<span class="vr">tool_params</span>={
+  <span class="st">"name"</span>: <span class="st">"x_amz_bedrock_agentcore_search"</span>,
+  <span class="st">"arguments"</span>: {
+    <span class="st">"query"</span>: <span class="st">"create a Jira support ticket"</span>,
+    <span class="st">"maxResults"</span>: <span class="nu">5</span>
+  }
+})
+<span class="cm"># Returns: [{"name":"jira_create_issue","score":0.97}]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="identity">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--rdd)">&#128272;</div>
+<div class="cc-m"><h2>4. AgentCore Identity</h2><p>Purpose-built identity and credential management for AI agents — OAuth 2.0 flows, workload identities, secure token vaults, and user-delegated access. Works standalone outside AgentCore Runtime (EKS, Lambda).</p></div>
+<div class="cc-tags"><span class="bdg bpu">OAuth 2.0</span><span class="bdg bb">Workload Identity</span><span class="bdg bo">Token Vault</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Identity is like a <strong>corporate security office + notary system for AI agents</strong>. When you send your AI agent (intern) to do work on your behalf, Identity gives it a temporary, scoped access badge: "Authorized for User Sarah — only Jira tickets — expires at 5 PM." The agent never sees your master password; it gets a limited, fully audited token. If compromised, the badge expires worthlessly.</p></div>
+<div class="two">
+<div>
+<div class="subt">OAuth Flow — 4 Phases</div>
+<div class="id-steps">
+<div class="id-s"><div class="s-num">1</div><div class="s-c"><h4>User Authentication</h4><p>User authenticates via Cognito, Entra ID, or Okta — establishing identity context and consent scope for agent.</p></div></div>
+<div class="id-s"><div class="s-num">2</div><div class="s-c"><h4>Workload Identity Issued</h4><p>A unique ARN-based workload identity is created for the agent — every Runtime and Gateway deployment gets one automatically.</p></div></div>
+<div class="id-s"><div class="s-num">3</div><div class="s-c"><h4>Token Vault Creates Scoped Token</h4><p>AgentCore combines user token + agent identity into a scoped, time-limited opaque token. Raw credentials never leave the vault.</p></div></div>
+<div class="id-s"><div class="s-num">4</div><div class="s-c"><h4>Secure Audited Tool Access</h4><p>Agent calls Salesforce, GitHub, Slack with token — full CloudTrail audit of every credential usage, automatic expiry.</p></div></div>
+</div>
+</div>
+<div>
+<div class="subt">Identity Types</div>
+<ul class="fl">
+<li><strong>AgentCore::OAuthUser</strong> — OAuth JWT sub claim</li>
+<li><strong>AgentCore::IamEntity</strong> — Full IAM ARN</li>
+<li><strong>Workload Identity</strong> — Agent ARN in Identity Directory</li>
+</ul>
+<div class="subt mt4">Supported Identity Providers</div>
+<div class="chips">
+<span class="chip">&#128309; Amazon Cognito</span>
+<span class="chip">&#128310; Microsoft Entra ID</span>
+<span class="chip">&#128312; Okta</span>
+<span class="chip">Auth0</span>
+</div>
+<div class="subt mt4">OAuth Patterns</div>
+<ul class="fl">
+<li><strong>3-Legged OAuth</strong> — Agent acts on behalf of a user</li>
+<li><strong>2-Legged OAuth (M2M)</strong> — Agent acts as itself autonomously</li>
+<li>SigV4 signing for AWS native resources</li>
+<li>Custom claims for multi-tenant environments (Dec 2025)</li>
+<li>Works standalone on EKS, Lambda, any compute</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="browser">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--td)">&#127760;</div>
+<div class="cc-m"><h2>5. AgentCore Browser Tool</h2><p>A fully managed containerized cloud browser for AI agents to interact with websites at enterprise scale — form filling, data extraction, QA testing — now GA (powered by Amazon Nova Act) with 90%+ enterprise reliability.</p></div>
+<div class="cc-tags"><span class="bdg bt">Nova Act powered</span><span class="bdg bg">Playwright/BrowserUse</span><span class="bdg bo">Session replay</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Browser Tool is like hiring a <strong>virtual employee with a locked-down, monitored office computer</strong>. No memory of prior sessions (ephemeral), fully logged by IT (CloudTrail), fresh clean desktop for every task. Give it instructions — navigate, fill forms, extract tables — executed at scale across thousands of concurrent sessions. No browser farm to manage, no Selenium grid to maintain.</p></div>
+<div class="two">
+<div>
+<div class="subt">Live Agent Session Demo</div>
+<div class="br-demo">
+<div class="br-chrome"><div class="br-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div><div class="br-url">AgentCore Secure Browser — Session #a7f2c9e1</div></div>
+<div class="br-body">
+<div class="br-act"><span class="act-b a-nav">NAVIGATE</span><span style="font-family:var(--fm)">https://example.com/pricing</span></div>
+<div class="br-act"><span class="act-b a-clk">CLICK</span><span>button[id="enterprise-plan-cta"]</span></div>
+<div class="br-act"><span class="act-b a-ext">EXTRACT</span><span>table.pricing-grid &rarr; structured JSON</span></div>
+<div class="br-act"><span class="act-b a-ss">CAPTURE</span><span>Full page screenshot &rarr; S3 output</span></div>
+</div>
+</div>
+<div class="subt mt4">Use Cases</div>
+<ul class="fl">
+<li>Competitive pricing research at scale</li>
+<li>Automated form submission and data entry</li>
+<li>Extraction from web-only portals (no public API)</li>
+<li>QA and regression testing of web applications</li>
+<li>Real-time news, stock, and market data retrieval</li>
+<li>Legacy system interaction via browser UI</li>
+</ul>
+</div>
+<div>
+<div class="subt">Security Model</div>
+<ul class="fl">
+<li>Complete container reset after each session</li>
+<li>Ephemeral — no persistent data between runs</li>
+<li>Session replay &amp; live view for debugging</li>
+<li>CloudTrail logging of all browser actions</li>
+<li>IAM access controls on every instance</li>
+<li>Scales 1 to thousands concurrent sessions</li>
+</ul>
+<div class="subt mt4">Supported Libraries</div>
+<div class="chips"><span class="chip">Playwright</span><span class="chip">Nova Act (GA)</span><span class="chip">Browser Use</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="code-interpreter">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--yd)">&#128187;</div>
+<div class="cc-m"><h2>6. AgentCore Code Interpreter</h2><p>A fully managed, isolated sandbox for AI agents to write and execute code — solving complex math, data analysis, visualizations, and multi-step workflows that pure language model reasoning cannot reliably handle.</p></div>
+<div class="cc-tags"><span class="bdg by">Python, JS, TypeScript</span><span class="bdg bb">8h execution</span><span class="bdg bg">5GB S3 files</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Code Interpreter is like a <strong>secure, isolated chemistry lab for your AI agent</strong>. The agent has all the chemistry knowledge (LLM reasoning), but for actual experiments (real computation), it needs a physical lab. The lab is completely isolated — nothing inside contaminates anything outside. All instruments are pre-installed (popular libraries preloaded), every experiment is fully logged, and precise results are returned to the agent.</p></div>
+<div class="two">
+<div>
+<div class="subt">Capabilities</div>
+<ul class="fl">
+<li>Execute Python, JavaScript, TypeScript in isolated sandbox</li>
+<li>Process large datasets up to 5GB via S3 references</li>
+<li>Generate data visualizations — charts returned as files</li>
+<li>Complex math, statistics, scientific computing</li>
+<li>File format transformation and conversion</li>
+<li>Multi-step iterative workflows — stateful execution</li>
+<li>Default 15-min, extendable up to 8 hours</li>
+<li>Pre-installed: pandas, numpy, matplotlib, scikit-learn</li>
+</ul>
+</div>
+<div>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">AGENT-GENERATED CODE (Runs in isolated sandbox)</span></div>
+<pre><code><span class="kw">import</span> pandas <span class="kw">as</span> pd, matplotlib.pyplot <span class="kw">as</span> plt
+
+<span class="cm"># Load dataset from S3 (up to 5GB)</span>
+<span class="vr">df</span> = pd.<span class="fn">read_csv</span>(<span class="st">"s3://my-bucket/sales-q3-2025.csv"</span>)
+
+<span class="cm"># Multi-step analysis</span>
+<span class="vr">monthly</span> = <span class="vr">df</span>.<span class="fn">groupby</span>(<span class="st">"month"</span>)[<span class="st">"revenue"</span>].<span class="fn">sum</span>()
+<span class="vr">growth</span> = <span class="vr">monthly</span>.<span class="fn">pct_change</span>() * <span class="nu">100</span>
+
+<span class="cm"># Auto-generate chart</span>
+plt.<span class="fn">figure</span>(<span class="vr">figsize</span>=(<span class="nu">10</span>, <span class="nu">6</span>))
+plt.<span class="fn">plot</span>(<span class="vr">growth</span>, <span class="vr">marker</span>=<span class="st">"o"</span>, <span class="vr">color</span>=<span class="st">"#FF9900"</span>)
+plt.<span class="fn">title</span>(<span class="st">"Monthly Revenue Growth %"</span>)
+plt.<span class="fn">savefig</span>(<span class="st">"output/growth_chart.png"</span>)
+<span class="cm"># PNG returned via S3 to the agent</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="observability">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--pkd)">&#128202;</div>
+<div class="cc-m"><h2>7. AgentCore Observability</h2><p>Complete end-to-end visibility into agent execution — real-time CloudWatch dashboards, OTEL-compatible distributed tracing, and 13 pre-built quality evaluators using real production interactions (not synthetic data).</p></div>
+<div class="cc-tags"><span class="bdg bpk">CloudWatch native</span><span class="bdg bb">OTEL compatible</span><span class="bdg bo">13 evaluators</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Observability is like <strong>NASA mission control for your AI agent fleet</strong>. Just as NASA tracks spacecraft — position, fuel, velocity, status — you monitor every agent's execution path, tool calls, latency, token usage, and error rates in real time. Distributed traces let you rewind any agent session and pinpoint exactly where and why it made a wrong decision. Quality evaluators are like automated mission success graders.</p></div>
+<div class="two">
+<div>
+<div class="subt">Key Metrics Dashboard</div>
+<div class="metrics">
+<div class="mt-c"><div class="mt-i">&#9889;</div><div class="mt-n">Latency</div><div class="mt-v" style="color:var(--bl)">p50/p99</div></div>
+<div class="mt-c"><div class="mt-i">&#127919;</div><div class="mt-n">Tokens</div><div class="mt-v" style="color:var(--gn)">Usage</div></div>
+<div class="mt-c"><div class="mt-i">&#128308;</div><div class="mt-n">Errors</div><div class="mt-v" style="color:var(--rd)">Rate</div></div>
+<div class="mt-c"><div class="mt-i">&#128230;</div><div class="mt-n">Sessions</div><div class="mt-v" style="color:var(--pp)">Active</div></div>
+<div class="mt-c"><div class="mt-i">&#128295;</div><div class="mt-n">Tools</div><div class="mt-v" style="color:var(--tl)">Calls/s</div></div>
+<div class="mt-c"><div class="mt-i">&#8987;</div><div class="mt-n">Duration</div><div class="mt-v" style="color:var(--yw)">Avg/Max</div></div>
+</div>
+<div class="subt">AgentCore Evaluations (re:Invent Dec 2025)</div>
+<ul class="fl">
+<li>13 pre-built evaluators: helpfulness, correctness, safety</li>
+<li>Tool usage accuracy, goal success rate, coherence</li>
+<li>Automated scoring from real production interactions</li>
+<li>Custom model-based scoring for business-specific metrics</li>
+<li>CloudWatch Alarms for automated quality gates</li>
+</ul>
+</div>
+<div>
+<div class="subt">Integrations</div>
+<ul class="fl">
+<li>Amazon CloudWatch — native dashboards, Logs Insights</li>
+<li>OpenTelemetry (OTEL) — standardized semantic conventions</li>
+<li>Datadog, Dynatrace — enterprise APM export</li>
+<li>LangSmith, Langfuse — LLM-specific tracing platforms</li>
+<li>Arize Phoenix — ML observability and evaluation</li>
+</ul>
+<div class="subt mt4">Instrumentation Libraries</div>
+<div class="chips">
+<span class="chip">OpenInference</span><span class="chip">OpenLLMetry</span><span class="chip">OpenLit</span>
+<span class="chip">Traceloop</span><span class="chip">AWS ADOT</span><span class="chip">Strands built-in</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="policy">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--bd2)">&#128274;</div>
+<div class="cc-m"><h2>8. AgentCore Policy (Cedar)</h2><p>Real-time fine-grained access control for every tool call using Cedar — the same open-source policy language powering Amazon Verified Permissions. Decouples authorization from agent code. Added at re:Invent Dec 2025.</p></div>
+<div class="cc-tags"><span class="bdg bb">Cedar PAAS</span><span class="bdg bg">Real-time enforcement</span><span class="bdg bo">Dec 2025</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Policy is like a <strong>real-time bank transaction approval system</strong>. Every time your AI agent requests a tool action, Cedar runs a check in &lt;1ms: "Is agent A allowed to call tool X for user Y right now?" — just like your bank instantly checks "Is this card authorized for this merchant?" The decision is enforced before execution, not logged after. And it can't be bypassed with a clever prompt.</p></div>
+<div class="two">
+<div>
+<div class="subt">How Cedar Policy Works</div>
+<div class="id-steps">
+<div class="id-s"><div class="s-num">1</div><div class="s-c"><h4>Agent Requests Tool Action</h4><p>Agent in Gateway or Runtime attempts to call a specific tool with specific parameters.</p></div></div>
+<div class="id-s"><div class="s-num">2</div><div class="s-c"><h4>Cedar Engine Evaluates in &lt;1ms</h4><p>Checks: principal (who is the agent?), action (what tool?), resource (what data?), context (time, conditions).</p></div></div>
+<div class="id-s"><div class="s-num">3</div><div class="s-c"><h4>ALLOW or DENY — Before Execution</h4><p>Policy decision is enforced externally from the LLM — cannot be prompt-injected or bypassed. Full audit trail.</p></div></div>
+</div>
+</div>
+<div>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">CEDAR POLICY EXAMPLE</span></div>
+<pre><code><span class="cm">// Only allow support-agent to read CRM</span>
+<span class="cm">// for premium-tier customers during business hours</span>
+<span class="kw">permit</span> (
+  <span class="vr">principal</span> == <span class="st">AgentCore::Runtime::"support-agent"</span>,
+  <span class="vr">action</span>   == <span class="st">Gateway::Action::"getCustomerRecord"</span>,
+  <span class="vr">resource</span>  == <span class="st">Gateway::Tool::"crm-lookup"</span>
+) <span class="kw">when</span> {
+  context.<span class="vr">user</span>.<span class="vr">tier</span> == <span class="st">"premium"</span> &&
+  context.<span class="vr">hour</span> >= <span class="nu">9</span> && context.<span class="vr">hour</span> <= <span class="nu">17</span>
+};</code></pre>
+</div>
+<div class="subt mt4">Key Advantages</div>
+<ul class="fl">
+<li>Policies stored externally — update without redeploying agents</li>
+<li>Integrates with AgentCore workload identities</li>
+<li>Prevents prompt injection attacks on tool access</li>
+<li>Every decision logged to CloudTrail for audit</li>
+<li>Natural language policy authoring option also available</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="protocols">
+<div class="wrap">
+<div class="s-lbl">Communication</div>
+<h2 class="s-ttl">9. Protocols: MCP, A2A, AGUI &amp; More</h2>
+<p class="s-dsc">AgentCore supports all major open agentic protocols — enabling agents to communicate with tools (MCP), each other (A2A), and human UIs (AGUI) via standardized, interoperable standards.</p>
+<div class="pg">
+<div class="pc" style="border-color:var(--bl)"><div class="p-ico">&#128268;</div><div class="p-nm" style="color:var(--bl)">MCP</div><div class="p-ds"><strong>Model Context Protocol</strong> — Anthropic open standard. Agent &harr; Tools. Gateway IS a full MCP server.</div></div>
+<div class="pc" style="border-color:var(--gn)"><div class="p-ico">&#129302;</div><div class="p-nm" style="color:var(--gn)">A2A</div><div class="p-ds"><strong>Agent-to-Agent</strong> — Google open standard. AgentCard capability discovery. Task delegation between agents.</div></div>
+<div class="pc" style="border-color:var(--pp)"><div class="p-ico">&#128172;</div><div class="p-nm" style="color:var(--pp)">AGUI</div><div class="p-ds"><strong>Agent-User Interaction</strong> — CopilotKit standard. Real-time bidirectional UI streams for frontend apps.</div></div>
+<div class="pc" style="border-color:var(--tl)"><div class="p-ico">&#127760;</div><div class="p-nm" style="color:var(--tl)">WebRTC/WS</div><div class="p-ds"><strong>Real-time streaming</strong> — Bidirectional audio for voice agents. Added Dec 2025.</div></div>
+</div>
+<div class="ab mt4"><div class="ab-lbl">&#128161; Protocol Analogy</div><p>Think of protocols as <strong>agent communication languages</strong>: MCP is English for agent-tool conversations, A2A is the inter-office memo standard between departments, AGUI is the presentation layer showing work to humans, and WebRTC/WS is the telephone line for live voice. Every AgentCore agent speaks all of these fluently — simultaneously.</p></div>
+</div>
+</section>
+
+<section class="sec" id="streaming">
+<div class="wrap">
+<div class="cc">
+<div class="cc-h">
+<div class="cc-ico" style="background:var(--td)">&#9658;&#9658;</div>
+<div class="cc-m"><h2>10. Bidirectional Streaming</h2><p>Real-time bidirectional communications for voice AI agents, live assistants, and concurrent multi-channel I/O — via WebSocket and WebRTC. The breakthrough capability from AWS re:Invent December 2025.</p></div>
+<div class="cc-tags"><span class="bdg bt">WebSocket + WebRTC</span><span class="bdg bg">Voice AI enabled</span><span class="bdg bo">re:Invent Dec 2025</span></div>
+</div>
+<div class="cc-body">
+<div class="ab mb4"><div class="ab-lbl">&#128161; Analogy</div><p>Bidirectional Streaming upgrades your AI agent from a <strong>letter-writer to a phone caller</strong>. Before: write a letter (send request) &rarr; wait for reply (polling). Now: real-time phone call — agent hears you immediately, thinks while listening, responds as it reasons, can be interrupted naturally. This is what enables truly conversational, voice-based AI agents that feel like talking to a human.</p></div>
+<div class="two">
+<div>
+<div class="subt">Use Cases</div>
+<ul class="fl">
+<li>Voice AI agents — speak naturally, get instant voice responses</li>
+<li>Real-time code completion and explanation</li>
+<li>Live customer support with instant agent responses</li>
+<li>Interactive data analysis with live commentary</li>
+<li>Multi-modal: simultaneous audio + data streams</li>
+<li>Real-time translation and interpretation agents</li>
+</ul>
+</div>
+<div>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">PYTHON — BIDIRECTIONAL VOICE STREAM</span></div>
+<pre><code><span class="kw">import</span> asyncio
+
+<span class="kw">async def</span> <span class="fn">voice_agent</span>():
+  <span class="kw">async with</span> <span class="fn">client.invoke_bidi_stream</span>(
+    <span class="vr">agentRuntimeArn</span>=<span class="st">"arn:aws:bedrock-agentcore:..."</span>,
+    <span class="vr">protocol</span>=<span class="st">"WebRTC"</span>
+  ) <span class="kw">as</span> stream:
+    <span class="cm"># Send audio chunks as they arrive from mic</span>
+    <span class="kw">async for</span> chunk <span class="kw">in</span> <span class="fn">mic_stream</span>():
+      <span class="kw">await</span> stream.<span class="fn">send</span>(chunk)
+      <span class="cm"># Receive response in real time</span>
+    <span class="kw">async for</span> resp <span class="kw">in</span> stream.<span class="fn">receive</span>():
+      <span class="kw">await</span> <span class="fn">play_audio</span>(resp)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- LATEST UPDATES -->
+<section class="sec" id="updates">
+<div class="wrap">
+<div class="s-lbl">Latest Updates</div>
+<h2 class="s-ttl">2025–2026 Timeline</h2>
+<p class="s-dsc">AgentCore was announced in May 2025 preview and has shipped major updates every month. Here are the key milestones from the past year.</p>
+<div style="display:flex;flex-direction:column;gap:var(--sp4)">
+<div class="news-card"><div class="news-date">April 14, 2026</div><div class="news-t">Spring AI SDK for AgentCore — Generally Available</div><div class="news-d">Java/Spring Boot developers can now build production-ready agents with annotations and auto-configuration. Brings AgentCore to the enterprise Java ecosystem.</div></div>
+<div class="news-card"><div class="news-date">March 11, 2026</div><div class="news-t">Memory Streaming Notifications for Long-Term Memory</div><div class="news-d">Developers now receive push notifications via Kinesis whenever memory records are created/modified — eliminating polling and enabling real-time downstream workflows.</div></div>
+<div class="news-card"><div class="news-date">December 2025 (re:Invent)</div><div class="news-t">Episodic Memory, Cedar Policy, Bidirectional Streaming, Custom Claims</div><div class="news-d">Four major capabilities: Episodic memory strategy (experience + lessons), Cedar policy-as-a-service, WebRTC/WS bidirectional streaming for voice agents, and custom identity claims for multi-tenant apps.</div></div>
+<div class="news-card"><div class="news-date">October 13, 2025</div><div class="news-t">Amazon Bedrock AgentCore — Generally Available</div><div class="news-d">Full GA release with Runtime, Memory (4 strategies), Gateway, Identity, Code Interpreter, Browser Tool, and Observability. Available in us-east-1, us-west-2, eu-west-1, ap-southeast-1.</div></div>
+<div class="news-card"><div class="news-date">May 2025</div><div class="news-t">AgentCore Preview + Strands Agents SDK Launch</div><div class="news-d">Preview announced at AWS Summit. Strands Agents open-source SDK launched simultaneously — reached 1M+ downloads by September 2025.</div></div>
+</div>
+</div>
+</section>
+
+<!-- CHEATSHEET -->
+<section class="sec" id="cheatsheet">
+<div class="wrap">
+<div class="s-lbl">Reference</div>
+<h2 class="s-ttl">All 10 Concepts — Master Cheatsheet</h2>
+<p class="s-dsc">Everything at a glance — concept, purpose, key analogy, and when to use it.</p>
+<table class="tbl">
+<thead><tr><th>#</th><th>Concept</th><th>One-Line Purpose</th><th>Analogy to Remember</th><th>When to Use</th></tr></thead>
+<tbody>
+<tr><td class="hl2">1</td><td>&#9889; <strong>Runtime</strong></td><td>Secure execution engine — Firecracker microVM, 8h sessions</td><td>Private hotel suite per guest</td><td>Every production agent deployment</td></tr>
+<tr><td class="hl2">2</td><td>&#129504; <strong>Memory</strong></td><td>Short + long-term managed memory, 5 extraction strategies</td><td>Assistant + 2 notebooks + case binder</td><td>Personalization, multi-session continuity</td></tr>
+<tr><td class="hl2">3</td><td>&#128256; <strong>Gateway</strong></td><td>Convert APIs to MCP tools, semantic discovery, dual auth</td><td>Universal adapter + smart concierge</td><td>Connecting agents to enterprise systems</td></tr>
+<tr><td class="hl2">4</td><td>&#128272; <strong>Identity</strong></td><td>OAuth + workload identity + token vault for agent access</td><td>Corporate security badge + notary</td><td>Agents acting as users or autonomously</td></tr>
+<tr><td class="hl2">5</td><td>&#127760; <strong>Browser</strong></td><td>Managed cloud browser for web automation at enterprise scale</td><td>Virtual employee with monitored PC</td><td>Web scraping, form filling, QA testing</td></tr>
+<tr><td class="hl2">6</td><td>&#128187; <strong>Code Interp.</strong></td><td>Isolated sandbox for Python/JS/TS execution and data analysis</td><td>Secure chemistry lab for AI</td><td>Calculations, data analysis, charts</td></tr>
+<tr><td class="hl2">7</td><td>&#128202; <strong>Observability</strong></td><td>CloudWatch + OTEL tracing + 13 automated quality evaluators</td><td>NASA mission control for agents</td><td>Production monitoring, debugging, QA</td></tr>
+<tr><td class="hl2">8</td><td>&#128274; <strong>Policy (Cedar)</strong></td><td>Real-time fine-grained access control for every tool call</td><td>Bank transaction approval per action</td><td>Compliance, fine-grained authorization</td></tr>
+<tr><td class="hl2">9</td><td>&#128268; <strong>Protocols</strong></td><td>MCP (tools), A2A (agents), AGUI (UI), WebRTC (voice)</td><td>Agent communication languages</td><td>Multi-agent, tool integration, voice UI</td></tr>
+<tr><td class="hl2">10</td><td>&#9658;&#9658; <strong>Streaming</strong></td><td>Bidirectional WebSocket/WebRTC for real-time voice agents</td><td>Letter-writing &rarr; phone calling upgrade</td><td>Voice agents, live assistants, real-time</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- QUICK START -->
+<section class="sec" id="quickstart">
+<div class="wrap">
+<div class="s-lbl">Get Started</div>
+<h2 class="s-ttl">Quick Start — 5 Steps to First Agent</h2>
+<p class="s-dsc">Launch your first AgentCore agent in under 10 minutes using Strands SDK. Requires AWS account + Python 3.9+.</p>
+<div class="qs">
+<div class="qs-h"><span style="font-size:1.4rem">&#9889;</span><h3>0 &rarr; Deployed Agent in 5 Steps</h3></div>
+<div class="qs-b"><div class="qs-s">
+<div class="qs-step"><div class="qs-n">1</div><div class="qs-c"><h4>Install Dependencies</h4>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">SHELL</span></div><pre><code>pip install strands-agents boto3
+aws configure  <span class="cm"># Set region: us-east-1 or us-west-2</span></code></pre></div></div></div>
+<div class="qs-step"><div class="qs-n">2</div><div class="qs-c"><h4>Create agent.py</h4>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">PYTHON</span></div><pre><code><span class="kw">from</span> strands <span class="kw">import</span> Agent
+<span class="kw">from</span> strands.tools <span class="kw">import</span> calculator
+
+<span class="vr">agent</span> = <span class="fn">Agent</span>(
+  <span class="vr">model</span>=<span class="st">"us.amazon.nova-pro-v1:0"</span>,
+  <span class="vr">tools</span>=[calculator],
+  <span class="vr">system_prompt</span>=<span class="st">"You are a helpful financial advisor."</span>
+)
+<span class="vr">result</span> = <span class="vr">agent</span>(<span class="st">"What is compound interest on $10,000 at 7% for 10 years?"</span>)
+<span class="fn">print</span>(<span class="vr">result</span>)</code></pre></div></div></div>
+<div class="qs-step"><div class="qs-n">3</div><div class="qs-c"><h4>Test Locally</h4>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">SHELL</span></div><pre><code>python agent.py
+<span class="cm"># Compound interest = $19,671.51 (96.7% growth over 10 years)</span></code></pre></div></div></div>
+<div class="qs-step"><div class="qs-n">4</div><div class="qs-c"><h4>Deploy to AgentCore Runtime</h4>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">CLI</span></div><pre><code>agentcore deploy --name financial-advisor --region us-east-1
+<span class="cm"># ✓ arn:aws:bedrock-agentcore:us-east-1:123:agent-runtime/fin...</span></code></pre></div></div></div>
+<div class="qs-step"><div class="qs-n">5</div><div class="qs-c"><h4>Invoke from Any Application</h4>
+<div class="cb"><div class="cb-h"><div class="cb-d"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="cb-l">PYTHON — BOTO3</span></div><pre><code><span class="kw">import</span> boto3, json
+<span class="vr">client</span> = boto3.<span class="fn">client</span>(<span class="st">"bedrock-agentcore"</span>, <span class="vr">region_name</span>=<span class="st">"us-east-1"</span>)
+<span class="vr">response</span> = <span class="vr">client</span>.<span class="fn">invoke_agent_runtime</span>(
+  <span class="vr">agentRuntimeArn</span>=<span class="st">"arn:aws:bedrock-agentcore:us-east-1:..."</span>,
+  <span class="vr">qualifier</span>=<span class="st">"DEFAULT"</span>,
+  <span class="vr">payload</span>=<span class="fn">json.dumps</span>({<span class="st">"prompt"</span>: <span class="st">"Analyze my Q4 2025 budget"</span>})
+)</code></pre></div></div></div>
+</div></div>
+</div>
+</div>
+</section>
+
+<footer class="ftr">
+<div class="wrap">
+<div class="ftr-i">
+<div class="ftr-b">
+<div style="display:flex;align-items:center;gap:var(--sp3)">
+<svg viewBox="0 0 32 32" fill="none" width="28" height="28"><rect width="32" height="32" rx="8" fill="#FF9900" opacity=".15"/><polygon points="16,4 28,10 28,22 16,28 4,22 4,10" fill="none" stroke="#FF9900" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#FF9900"/></svg>
+<span style="font-family:var(--fd);font-weight:700;font-size:var(--bs)">AgentCore Guide</span>
+</div>
+<p>Complete interactive learning guide for AWS Amazon Bedrock AgentCore — all 10 core concepts with analogies and code examples. Updated through April 2026 including Spring AI SDK.</p>
+</div>
+<div class="ftr-col"><h4>Concepts</h4><div class="ftr-ls">
+<a href="#runtime">Runtime</a><a href="#memory">Memory</a><a href="#gateway">Gateway</a>
+<a href="#identity">Identity</a><a href="#browser">Browser Tool</a>
+</div></div>
+<div class="ftr-col"><h4>More</h4><div class="ftr-ls">
+<a href="#code-interpreter">Code Interpreter</a><a href="#observability">Observability</a>
+<a href="#policy">Policy (Cedar)</a><a href="#protocols">Protocols</a><a href="#streaming">Streaming</a>
+</div></div>
+<div class="ftr-col"><h4>Resources</h4><div class="ftr-ls">
+<a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/" target="_blank" rel="noopener">AWS Docs</a>
+<a href="https://strandsagents.com" target="_blank" rel="noopener">Strands SDK</a>
+<a href="https://github.com/awslabs/agent-squad" target="_blank" rel="noopener">Agent Squad GitHub</a>
+<a href="#cheatsheet">Cheat Sheet</a><a href="#updates">Updates Timeline</a>
+</div></div>
+</div>
+<div class="ftr-bot">
+<p>&#169; 2026 AWS AgentCore Interactive Guide &mdash; Not official AWS documentation. Built with deep research.</p>
+<p>GA Oct 13, 2025 &bull; re:Invent Dec 2025 &bull; Spring AI Apr 2026 &bull; Last updated April 2026</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Theme toggle
+(function(){
+  var d=document.documentElement,t=document.querySelector('[data-tt]');
+  var theme='dark';
+  try{var s=matchMedia('(prefers-color-scheme:dark)');theme=s.matches?'dark':'light';}catch(e){}
+  d.setAttribute('data-theme',theme);
+  function updateIcon(){if(!t)return;t.innerHTML=d.getAttribute('data-theme')==='dark'
+    ?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}
+  updateIcon();
+  if(t)t.addEventListener('click',function(){var v=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',v);updateIcon();});
+})();
+
+// Hamburger
+document.getElementById('hbtn').addEventListener('click',function(){document.getElementById('nav').classList.toggle('open');});
+
+// Nav active on scroll
+var navLinks=document.querySelectorAll('.nl[data-s]');
+var sections=['overview','runtime','memory','gateway','identity','browser','code-interpreter','observability','policy','protocols','streaming','cheatsheet'];
+window.addEventListener('scroll',function(){
+  var cur='overview';
+  sections.forEach(function(id){var el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<120)cur=id;});
+  navLinks.forEach(function(l){l.classList.toggle('on',l.getAttribute('data-s')===cur||(cur==='code-interpreter'&&l.getAttribute('data-s')==='code')||(cur==='observability'&&l.getAttribute('data-s')==='obs'));});
+  upProg();
+},{passive:true});
+
+// Progress tracker
+var done=new Set();
+var allK=['runtime','memory','gateway','identity','browser','code','obs','policy','proto'];
+function upProg(){
+  var sectMap={'runtime':'runtime','memory':'memory','gateway':'gateway','identity':'identity','browser':'browser','code-interpreter':'code','observability':'obs','policy':'policy','protocols':'proto'};
+  Object.keys(sectMap).forEach(function(id){var el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.7){done.add(sectMap[id]);var d=document.getElementById('pd-'+sectMap[id]);if(d)d.classList.add('done');}});
+  var pct=Math.round((done.size/9)*100);
+  document.getElementById('pBar').style.width=pct+'%';
+  document.getElementById('pCnt').textContent=done.size+' / 9 concepts';
+}
+function tp(id){
+  if(done.has(id)){done.delete(id);var d=document.getElementById('pd-'+id);if(d)d.classList.remove('done');}
+  else{done.add(id);var d=document.getElementById('pd-'+id);if(d)d.classList.add('done');}
+  var pct=Math.round((done.size/9)*100);
+  document.getElementById('pBar').style.width=pct+'%';
+  document.getElementById('pCnt').textContent=done.size+' / 9 concepts';
+}
+
+// Entrance animations
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.05});
+document.querySelectorAll('.cc,.arch,.tbl,.pg,.qs').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s ease,transform .5s ease';obs.observe(el);});
+</script>
+</body>
+</html>
