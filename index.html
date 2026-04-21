@@ -255,6 +255,16 @@ code,pre{font-family:var(--fm);}
 .ftr-ls a:hover{color:var(--pr);}
 .ftr-bot{border-top:1px solid var(--dv);margin-top:var(--sp8);padding-top:var(--sp6);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sp4);}
 .ftr-bot p{font-size:var(--xs);color:var(--tf);}
+.curated-by{border-top:1px solid var(--dv);margin-top:var(--sp6);padding-top:var(--sp5);display:flex;align-items:center;justify-content:center;gap:var(--sp2);font-size:var(--sm);color:var(--tm);font-weight:500;}
+.curated-by strong{color:var(--pr);}
+.ref-section{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r4);padding:var(--sp6) var(--sp8);margin-bottom:var(--sp6);}
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--sp3);margin-top:var(--sp5);}
+.ref-item{display:flex;align-items:flex-start;gap:var(--sp3);padding:var(--sp3) var(--sp4);background:var(--so);border:1px solid var(--dv);border-radius:var(--r3);transition:all var(--tr);}
+.ref-item:hover{border-color:var(--pr);background:var(--hl);}
+.ref-item a{font-size:var(--sm);font-weight:600;color:var(--tx);display:block;margin-bottom:3px;}
+.ref-item a:hover{color:var(--pr);}
+.ref-meta{font-size:var(--xs);color:var(--tm);}
+.ref-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
 /* Helpers */
 .mt4{margin-top:var(--sp4);}.mb4{margin-bottom:var(--sp4);}.mb6{margin-bottom:var(--sp6);}
 /* Responsive */
@@ -290,6 +300,7 @@ code,pre{font-family:var(--fm);}
 <a href="#code-interpreter" class="nl" data-s="code">Code Interp.</a>
 <a href="#observability" class="nl" data-s="obs">Observability</a>
 <a href="#policy" class="nl" data-s="policy">Policy</a>
+<a href="#references" class="nl" data-s="references">References</a>
 </nav>
 <div class="hdr-act">
 <button class="tt-btn" data-tt aria-label="Toggle theme">
@@ -1007,6 +1018,76 @@ aws configure  <span class="cm"># Set region: us-east-1 or us-west-2</span></cod
 </div>
 </section>
 
+
+<!-- REFERENCES -->
+<section class="sec" id="references">
+<div class="wrap">
+<div class="s-lbl">Sources</div>
+<h2 class="s-ttl">Reference Links</h2>
+<p class="s-dsc">All concepts in this guide are sourced from official AWS documentation, AWS blogs, and verified community resources. Content covers October 2025 GA through April 2026.</p>
+<div class="ref-section">
+<div class="subt">Official AWS Documentation &amp; Blogs</div>
+<div class="ref-grid">
+<div class="ref-item">
+<span class="ref-icon">&#128196;</span>
+<div><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener">AWS AgentCore Developer Guide — Overview</a><div class="ref-meta">docs.aws.amazon.com &bull; Official documentation</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128240;</span>
+<div><a href="https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2025/" target="_blank" rel="noopener">Top Announcements of AWS re:Invent 2025</a><div class="ref-meta">aws.amazon.com/blogs &bull; Nov 29, 2025</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128240;</span>
+<div><a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-memory-streaming-ltm/" target="_blank" rel="noopener">AgentCore Memory: Streaming LTM Notifications</a><div class="ref-meta">aws.amazon.com &bull; Mar 11, 2026</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128240;</span>
+<div><a href="https://aws.amazon.com/blogs/machine-learning/spring-ai-sdk-for-amazon-bedrock-agentcore-is-now-generally-available/" target="_blank" rel="noopener">Spring AI SDK for AgentCore — Generally Available</a><div class="ref-meta">aws.amazon.com/blogs/machine-learning &bull; Apr 13, 2026</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128240;</span>
+<div><a href="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-strands-agents-1m-downloads-cloud-club-captain-ai-agent-hackathon-and-more-september-14-2025/" target="_blank" rel="noopener">Strands Agents: 1M+ Downloads Milestone</a><div class="ref-meta">aws.amazon.com/blogs &bull; Sep 14, 2025</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128249;</span>
+<div><a href="https://www.youtube.com/watch?v=GYlPFmrATjU" target="_blank" rel="noopener">Amazon Bedrock Agents and AgentCore Design Patterns (TNC322)</a><div class="ref-meta">youtube.com &bull; re:Invent 2025 Session &bull; Dec 3, 2025</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128249;</span>
+<div><a href="https://www.youtube.com/watch?v=gWY9z75qCcU" target="_blank" rel="noopener">Multi-Agent Collaboration with AgentCore — re:Invent 2025</a><div class="ref-meta">youtube.com &bull; re:Invent 2025 Session &bull; Dec 6, 2025</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128249;</span>
+<div><a href="https://www.antstack.com/talks/reinvent25/aws-reinvent-2025---architecting-scalable-ai-agents-using-amazon-bedrock-agentcore-tnc321" target="_blank" rel="noopener">Architecting Scalable AI Agents with AgentCore (TNC321)</a><div class="ref-meta">antstack.com &bull; re:Invent 2025</div></div>
+</div>
+</div>
+<div class="subt" style="margin-top:var(--sp6)">Community &amp; Learning Resources</div>
+<div class="ref-grid">
+<div class="ref-item">
+<span class="ref-icon">&#9889;</span>
+<div><a href="https://strandsagents.com" target="_blank" rel="noopener">Strands Agents SDK — Official Site</a><div class="ref-meta">strandsagents.com &bull; AWS open-source agent framework</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128279;</span>
+<div><a href="https://github.com/awslabs/agent-squad" target="_blank" rel="noopener">Agent Squad — GitHub (awslabs)</a><div class="ref-meta">github.com/awslabs/agent-squad &bull; Multi-agent orchestration</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#127979;</span>
+<div><a href="https://www.coursera.org/learn/building-ai-agents-with-amazon-bedrock-agentcore" target="_blank" rel="noopener">Building AI Agents with Amazon Bedrock AgentCore — Coursera</a><div class="ref-meta">coursera.org &bull; Official AWS course &bull; Oct 27, 2025</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128221;</span>
+<div><a href="https://hidekazu-konishi.com/entry/amazon_bedrock_agentcore_beginners_guide.html" target="_blank" rel="noopener">AgentCore Beginner's Guide — Community Article</a><div class="ref-meta">hidekazu-konishi.com &bull; Nov 6, 2025</div></div>
+</div>
+<div class="ref-item">
+<span class="ref-icon">&#128221;</span>
+<div><a href="https://dev.to/aws-heroes/amazon-bedrock-agentcore-runtime-part-1-introduction-e5i" target="_blank" rel="noopener">AgentCore Runtime — Part 1 Introduction (AWS Heroes)</a><div class="ref-meta">dev.to/aws-heroes &bull; Aug 21, 2025</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <footer class="ftr">
 <div class="wrap">
 <div class="ftr-i">
@@ -1025,16 +1106,23 @@ aws configure  <span class="cm"># Set region: us-east-1 or us-west-2</span></cod
 <a href="#code-interpreter">Code Interpreter</a><a href="#observability">Observability</a>
 <a href="#policy">Policy (Cedar)</a><a href="#protocols">Protocols</a><a href="#streaming">Streaming</a>
 </div></div>
-<div class="ftr-col"><h4>Resources</h4><div class="ftr-ls">
-<a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/" target="_blank" rel="noopener">AWS Docs</a>
-<a href="https://strandsagents.com" target="_blank" rel="noopener">Strands SDK</a>
-<a href="https://github.com/awslabs/agent-squad" target="_blank" rel="noopener">Agent Squad GitHub</a>
-<a href="#cheatsheet">Cheat Sheet</a><a href="#updates">Updates Timeline</a>
+<div class="ftr-col"><h4>References</h4><div class="ftr-ls">
+<a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener">&#128196; Official AWS Docs</a>
+<a href="https://aws.amazon.com/blogs/aws/top-announcements-of-aws-reinvent-2025/" target="_blank" rel="noopener">&#128240; re:Invent 2025 Announcements</a>
+<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-memory-streaming-ltm/" target="_blank" rel="noopener">&#128240; Memory Streaming (Mar 2026)</a>
+<a href="https://aws.amazon.com/blogs/machine-learning/spring-ai-sdk-for-amazon-bedrock-agentcore-is-now-generally-available/" target="_blank" rel="noopener">&#128240; Spring AI SDK (Apr 2026)</a>
+<a href="https://strandsagents.com" target="_blank" rel="noopener">&#9889; Strands Agents SDK</a>
+<a href="https://github.com/awslabs/agent-squad" target="_blank" rel="noopener">&#128279; Agent Squad GitHub</a>
+<a href="https://www.coursera.org/learn/building-ai-agents-with-amazon-bedrock-agentcore" target="_blank" rel="noopener">&#127979; Coursera AgentCore Course</a>
 </div></div>
 </div>
 <div class="ftr-bot">
 <p>&#169; 2026 AWS AgentCore Interactive Guide &mdash; Not official AWS documentation. Built with deep research.</p>
 <p>GA Oct 13, 2025 &bull; re:Invent Dec 2025 &bull; Spring AI Apr 2026 &bull; Last updated April 2026</p>
+</div>
+<div class="curated-by">
+<svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M10 2l2.39 4.84L18 7.64l-4 3.9.94 5.46L10 14.27l-4.94 2.73L6 11.54 2 7.64l5.61-.8L10 2z" fill="var(--pr)" opacity=".8"/></svg>
+Curated by <strong>Mahantesh Hiremath</strong>
 </div>
 </div>
 </footer>
